@@ -1,6 +1,6 @@
 import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals
-
+import org.junit.jupiter.api.assertThrows
 class NumbersTest {
 
     @Test
@@ -33,5 +33,19 @@ class NumbersTest {
         val numbers= Numbers.ThreeNumbers(12, 4,6)
         val actual = numbers.diff()
         assertEquals(expected, actual)
+    }
+  @Test
+    fun test_divide(){
+        val expected =2.5
+        val numbers= Numbers.Base(10, 4)
+        val actual = numbers.divide()
+        assertEquals(expected,actual)
+    }
+    @Test
+    fun test_divide_zero() {
+        assertThrows<IllegalArgumentException> {
+            val numbers = Numbers.Base(12, 0)
+            numbers.divide()
+        }
     }
 }
